@@ -1729,7 +1729,7 @@ class TBOPlayer:
         for idx in range(self.playlist.length()):
             self.playlist.select(idx)
             item = self.playlist.selected_track()[PlayList.LOCATION]
-            ofile.write ('"' + (item if 'http' in item else self.playlist.selected_track()[PlayList.LOCATION_BACKUP]) + '","' + self.playlist.selected_track()[PlayList.TITLE]+'"\n')
+            ofile.write ('"' + (item if not 'http' in item else self.playlist.selected_track()[PlayList.LOCATION_BACKUP]) + '","' + self.playlist.selected_track()[PlayList.TITLE]+'"\n')
         ofile.close()
         return
 
