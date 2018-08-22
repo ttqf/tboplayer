@@ -627,8 +627,8 @@ class TBOPlayer:
             if not '--aspect-mode' in opts:
                 opts += ' --aspect-mode letterbox'
             
-            if not '--no-osd' in opts:
-                opts += ' --no-osd'
+            #if not '--no-osd' in opts:
+             #   opts += ' --no-osd'
 
         self.monitor('starting omxplayer with args: "%s"' % (opts,))
 
@@ -999,6 +999,9 @@ class TBOPlayer:
             return
         elif char=='q':
             self.stop_track()
+            return
+	elif char=='f':
+            self.toggle_full_screen()
             return
         else:
             self.send_command(char)
